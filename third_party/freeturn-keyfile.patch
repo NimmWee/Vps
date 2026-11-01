@@ -1,0 +1,34 @@
+diff --git a/internal/config/cliflags.go b/internal/config/cliflags.go
+index ae95e6b..dfded7f 100644
+--- a/internal/config/cliflags.go
++++ b/internal/config/cliflags.go
+@@ -4,6 +4,7 @@ import (
+ 	"flag"
+ 	"fmt"
+ 	"io"
++	"os"
+ 	"strings"
+ 
+ 	"github.com/samosvalishe/free-turn-proxy/internal/uri"
+@@ -102,6 +103,7 @@ func ParseServer(args []string, errOut io.Writer) (*Server, error) {
+ 	mode := fs.String("mode", string(def.Proxy.Mode), "режим туннеля: udp (WireGuard) | tcp (Xray/sing-box)")
+ 	obfProfile := fs.String("obf-profile", string(def.Obf.Profile), "wire-профиль обфускации: none | rtpopus | rtpopus2 | rtpopus3; должен совпадать с клиентом")
+ 	obfKey := fs.String("obf-key", "", "ключ для -obf-profile != none: 32 байта hex (64 символа)")
++	obfKeyFile := fs.String("obf-key-file", "", "read server obfuscation key from a protected file")
+ 	genObfKey := fs.Bool("gen-obf-key", false, "напечатать новый -obf-key и выйти")
+ 	obfTiming := fs.Duration("obf-timing", 0, "межпакетная задержка для RTP-мимикрии (напр. 10ms); 0=выкл")
+ 	debug := fs.Bool("debug", false, "подробные debug-логи")
+@@ -112,6 +114,13 @@ func ParseServer(args []string, errOut io.Writer) (*Server, error) {
+ 		return nil, err
+ 	}
+ 
++ if *obfKeyFile != "" {
++  if *obfKey != "" { return nil, fmt.Errorf("choose obf-key or obf-key-file") }
++  data, err := os.ReadFile(*obfKeyFile)
++  if err != nil { return nil, fmt.Errorf("cannot read obfuscation key file") }
++  *obfKey = strings.TrimSpace(string(data))
++ }
++
+ 	switch *mode {
+ 	case ModeUDP, ModeTCP:
+ 	default:

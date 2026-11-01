@@ -1,0 +1,5 @@
+This installer is MIT licensed. Bundled FreeTurn is a separate work by its upstream authors, built from https://github.com/hackdiaz-dev/free-turn-proxy at commit 6d857e1e847a38fdee3e150314fb37009e3c37a6 (v4.1.2), with a small key-file patch and updated Go dependency lock files. Its full Happy Bunny License is in `third_party/freeturn-LICENSE`; that license applies to both bundled transport binaries.
+
+WireGuard, Fail2ban and other runtime dependencies are installed from the distribution's signed apt repositories under their own licenses. No mobile APK, IPA or modified mobile client is redistributed here. Android: https://github.com/hackdiaz-dev/turn-proxy-android. iPhone: https://github.com/anton48/vk-turn-proxy-ios.
+
+The optional `--with-kit` mode downloads and runs the pinned 3X-UI KIT v1.2.1 upstream installer, maintained by itsnotkubrick: https://github.com/itsnotkubrick/3X-UI_KIT. KIT is MIT licensed and manages its own components. It is not included in the lightweight default runtime.

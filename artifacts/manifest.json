@@ -1,0 +1,9 @@
+{
+  "version": "4.1.2-vps1",
+  "upstream_commit": "6d857e1e847a38fdee3e150314fb37009e3c37a6",
+  "go": "1.27.3",
+  "sha256": {
+    "freeturn-linux-amd64": "9e6ccfde48ac0dc3ffdb398ef19f2203521febd3eeecfc6ae36a441226601a0c",
+    "freeturn-linux-arm64": "0862013f4fcc9214acde948b6913fe434dfcd9ed7359a506681594852be1c1f5"
+  }
+}
