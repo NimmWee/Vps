@@ -8,11 +8,11 @@
 
 Implementation is executed in the dedicated empty repository checkout. No subagents are used, consistent with the user's recorded working preference. Architecture and publishing are already delegated by the current request; routine implementation decisions do not need another approval gate.
 
-- [ ] Finish the current server's packet and VK relay tests, then revoke temporary access.
-- [ ] Write failing tests for input validation, separate phone profiles, IP migration and hostile backup entries.
-- [ ] Implement bootstrap, runtime CLI, systemd/network templates and artifact manifest.
-- [ ] Implement install/status/profiles/backup/restore/uninstall and optional pinned KIT setup.
-- [ ] Run unit tests, syntax checks, real installation in an isolated namespace/directory, repeated install and service restart tests.
-- [ ] Audit tracked files for credentials and provide Russian usage and migration instructions.
-- [ ] Commit, push to the requested repository, fetch the published one-command installer and verify checksums.
-- [ ] Deliver phone configs and installation command; stop the completed heartbeat.
+- [x] Finish the current server's packet and VK relay tests, then revoke temporary access.
+- [x] Write failing tests for input validation, separate phone profiles, IP migration and hostile backup entries.
+- [x] Implement bootstrap, runtime CLI, systemd/network templates and artifact manifest.
+- [x] Implement install/status/profiles/backup/restore/uninstall and optional pinned KIT setup.
+- [x] Run unit tests, syntax checks, real installation in an isolated namespace/directory, repeated install and service restart tests.
+- [x] Audit tracked files for credentials and provide Russian usage and migration instructions.
+- [x] Commit, push to the requested repository, fetch the published one-command installer and verify checksums.
+- [x] Deliver phone configs and installation command; stop the completed heartbeat.
